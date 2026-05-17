@@ -1,0 +1,19 @@
+import random 
+ 
+dist = [[0,10,15,20],[10,0,35,25],[15,35,0,30],[20,25,30,0]] 
+cities = list(range(len(dist))) 
+def d(t): 
+  
+20AIPW603-OPTIMIZATION TECHNIQUES FOR PROGRAMMING WITH LAB 
+ 
+ 
+return sum(dist[t[i]][t[i+1]] for I in range(len(t)-1)) + dist[t[-1]][t[0]] 
+best, best_d = None, float(‘inf’) 
+for _ in range(1000): 
+t = cities[:] 
+random.shuffle(t) 
+if (x := d(t)) < best_d: 
+best, best_d = t, x 
+ 
+print(“Best Tour:”, best) 
+print(“Minimum Distance:”, best_d)
